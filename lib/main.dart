@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:vtfdps/services/websocket.dart';
 import 'screens/ConnectPage.dart';
 import 'router.dart';
 
 void main() {
   runApp(MainApp());
+  MyWebSocket webSocket = MyWebSocket();
+
+  webSocket.sendMessage('test');
 }
 
 class MainApp extends StatelessWidget {
