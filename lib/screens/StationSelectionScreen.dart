@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class StationSelectionPage extends StatelessWidget {
+class StationSelectionScreen extends StatelessWidget {
+  const StationSelectionScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

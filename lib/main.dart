@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/ConnectPage.dart';
+import 'screens/ConnectPage.dart';
 import 'router.dart';
 
 void main() {
@@ -9,9 +9,9 @@ void main() {
 class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const  MaterialApp(
+    return const MaterialApp(
       title: 'vTFDPS',
-      home: ConnectPage(),
+      home: ConnectScreen(),
       initialRoute: '/',
       onGenerateRoute: MyRouter.generateRoute,
     );
