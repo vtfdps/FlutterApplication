@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'pages/ConnectPage.dart';
-import 'pages/StationSelectionPage.dart';
+import 'screens/ConnectPage.dart';
+import 'screens/StationSelectionScreen.dart';
 
 class MyRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => ConnectPage());
+        return MaterialPageRoute(builder: (_) => const ConnectScreen());
       case '/StationSelection':
-        return MaterialPageRoute(builder: (_) => StationSelectionPage());
+        return MaterialPageRoute(
+            builder: (_) => const StationSelectionScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

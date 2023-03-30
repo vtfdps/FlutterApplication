@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ConnectPage extends StatelessWidget {
-  const ConnectPage({Key? key}) : super(key: key);
+class ConnectScreen extends StatelessWidget {
+  const ConnectScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
