@@ -8,21 +8,23 @@ class GroundDeliveryGrid extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
 
+    final sizeRow1 = 0.269;
+    final sizeRow2 = 0.415;
+    final sizeRow34 = (1 - sizeRow2 - sizeRow1) / 2;
+
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
-            height: screenHeight * 0.25,
+            height: screenHeight * sizeRow1,
             width: screenWidth,
             child: Row(
               children: [
                 Expanded(
-                  child: Container(
-                    color: Colors.red,
-                    child: Center(
-                      child: Text('AIRBORNE & DEP - RDY'),
-                    ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[Text('Widget 1'), Text('Widget 2')],
                   ),
                 ),
                 Expanded(
@@ -44,63 +46,72 @@ class GroundDeliveryGrid extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    color: Colors.orange,
-                    child: Center(
-                      child: Text('DEP - GND'),
+          SizedBox(
+            height: screenHeight * sizeRow2,
+            child: Container(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      color: Colors.orange,
+                      child: Center(
+                        child: Text('DEP - GND'),
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Container(
-                    color: Colors.cyan,
-                    child: Center(
-                      child: Text('ARR - TAXI'),
+                  Expanded(
+                    child: Container(
+                      color: Colors.cyan,
+                      child: Center(
+                        child: Text('ARR - TAXI'),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 3,
-                  child: Container(
-                    color: Colors.orange,
-                    child: Center(
-                      child: Text('Delivery'),
+          SizedBox(
+            height: screenHeight * sizeRow34,
+            child: Container(
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Container(
+                      color: Colors.orange,
+                      child: Center(
+                        child: Text('Delivery'),
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Container(
-                    color: Colors.cyan,
-                    child: Center(
-                      child: Text('ARR - GNDLOCK?'),
+                  Expanded(
+                    child: Container(
+                      color: Colors.cyan,
+                      child: Center(
+                        child: Text('ARR - GNDLOCK?'),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    color: Colors.grey,
-                    child: Center(
-                      child: Text('Pending'),
+          SizedBox(
+            height: screenHeight * sizeRow34,
+            child: Container(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      color: Colors.grey,
+                      child: Center(
+                        child: Text('Pending'),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
