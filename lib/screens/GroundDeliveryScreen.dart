@@ -24,14 +24,14 @@ class GroundDeliveryGrid extends StatelessWidget {
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[Text('Widget 1'), Text('Widget 2')],
+                    children: <Widget>[Text('AIRBORNE'), Text('DEP - RDY')],
                   ),
                 ),
                 Expanded(
                   child: Container(
                     color: Colors.green,
                     child: Center(
-                      child: Text('Widget 2'),
+                      child: Text('ACTIVE'),
                     ),
                   ),
                 ),
@@ -39,7 +39,7 @@ class GroundDeliveryGrid extends StatelessWidget {
                   child: Container(
                     color: Colors.blue,
                     child: Center(
-                      child: Text('Widget 3'),
+                      child: Text('ARR - PENDING'),
                     ),
                   ),
                 ),
@@ -89,7 +89,7 @@ class GroundDeliveryGrid extends StatelessWidget {
                     child: Container(
                       color: Colors.cyan,
                       child: Center(
-                        child: Text('ARR - GNDLOCK?'),
+                        child: Text('ARR - ?'),
                       ),
                     ),
                   ),
