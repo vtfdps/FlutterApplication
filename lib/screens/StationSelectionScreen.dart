@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vtfdps/screens/GroundDeliveryScreen.dart';
 
 class StationSelectionScreen extends StatelessWidget {
   const StationSelectionScreen({super.key});
@@ -15,7 +16,10 @@ class StationSelectionScreen extends StatelessWidget {
           children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                // Handle DEL+GND button press
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => GroundDeliveryGrid()),
+                );
               },
               child: Text('DEL + GND'),
             ),
