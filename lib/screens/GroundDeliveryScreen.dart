@@ -26,7 +26,9 @@ class GroundDeliveryGrid extends StatelessWidget {
                   child: Container(
                     width: double.infinity,
                     height: double.infinity,
-                    child: Expanded(child: AirborneWidget()),
+                    child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: AirborneWidget()),
                   ),
                 ),
                 Expanded(
@@ -91,7 +93,7 @@ class GroundDeliveryGrid extends StatelessWidget {
                     child: Container(
                       color: Colors.cyan,
                       child: Center(
-                        child: Text('ARR - ?'),
+                        child: Text('ARR - ONBLOCK'),
                       ),
                     ),
                   ),
