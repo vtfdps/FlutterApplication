@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/AirborneWidget.dart';
 
 class GroundDeliveryGrid extends StatelessWidget {
   const GroundDeliveryGrid({Key? key}) : super(key: key);
@@ -22,9 +23,10 @@ class GroundDeliveryGrid extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[Text('AIRBORNE'), Text('DEP - RDY')],
+                  child: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: Expanded(child: AirborneWidget()),
                   ),
                 ),
                 Expanded(
