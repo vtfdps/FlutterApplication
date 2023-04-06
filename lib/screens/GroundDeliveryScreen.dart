@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../models/AircraftClass.dart';
 import '../widgets/AirborneWidget.dart';
 
 class GroundDeliveryGrid extends StatelessWidget {
@@ -35,8 +36,23 @@ class GroundDeliveryGrid extends StatelessWidget {
                   child: Container(
                     color: Colors.green,
                     child: Center(
-                      child: Text('ACTIVE'),
-                    ),
+                        child: ElevatedButton(
+                      child: const Text('Press'),
+                      onPressed: () {
+                        final GlobalKey<AirborneWidgetState> airborneKey =
+                            GlobalKey<AirborneWidgetState>();
+
+                        List<Aircraft> newAircraft = [
+                          Aircraft(
+                              callsign: 'DAL123', aircrafttype: 'Boeing 737'),
+                          Aircraft(
+                              callsign: 'AAL456', aircrafttype: 'Airbus A320'),
+                        ];
+
+                        airborneKey.currentState
+                            ?.updateAircraftList(newAircraft);
+                      },
+                    )),
                   ),
                 ),
                 Expanded(

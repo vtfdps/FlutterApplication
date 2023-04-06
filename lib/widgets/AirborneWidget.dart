@@ -5,20 +5,20 @@ class AirborneWidget extends StatefulWidget {
   const AirborneWidget({Key? key}) : super(key: key);
 
   @override
-  _AirborneWidgetState createState() => _AirborneWidgetState();
+  AirborneWidgetState createState() => AirborneWidgetState();
 
-  static GlobalKey<_AirborneWidgetState> airborneWidgetKey =
-      GlobalKey<_AirborneWidgetState>();
+  static GlobalKey<AirborneWidgetState> airborneWidgetKey =
+      GlobalKey<AirborneWidgetState>();
 }
 
-class _AirborneWidgetState extends State<AirborneWidget> {
+class AirborneWidgetState extends State<AirborneWidget> {
   List<Aircraft> _aircrafts = [
     Aircraft(callsign: 'DLH123', aircrafttype: 'A320'),
     Aircraft(callsign: 'DLH124', aircrafttype: 'B748'),
     Aircraft(callsign: 'DLH125', aircrafttype: 'YOURMOM'),
   ];
 
-  void _updateAircrafts(List<Aircraft> newAircrafts) {
+  void updateAircraftList(List<Aircraft> newAircrafts) {
     setState(() {
       _aircrafts = newAircrafts;
     });
@@ -59,20 +59,5 @@ class _AircraftWidgetState extends State<AircraftWidget> {
         ],
       ),
     );
-  }
-}
-
-class AircraftAirborneWidget extends StatefulWidget {
-  const AircraftAirborneWidget({super.key});
-
-  @override
-  State<AircraftAirborneWidget> createState() => _AircraftAirborneWidget;
-  State();
-}
-
-class _AircraftAirborneWidgetState extends State<AircraftAirborneWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
