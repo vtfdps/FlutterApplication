@@ -12,10 +12,11 @@ class AirborneWidget extends StatefulWidget {
 }
 
 class AirborneWidgetState extends State<AirborneWidget> {
+  // test elements:
   List<Aircraft> _aircrafts = [
     Aircraft(callsign: 'DLH123', aircrafttype: 'A320'),
     Aircraft(callsign: 'DLH124', aircrafttype: 'B748'),
-    Aircraft(callsign: 'DLH125', aircrafttype: 'YOURMOM'),
+    Aircraft(callsign: 'DLH125', aircrafttype: 'Test'),
   ];
 
   void updateAircraftList(List<Aircraft> newAircrafts) {
@@ -29,22 +30,23 @@ class AirborneWidgetState extends State<AirborneWidget> {
     return ListView.builder(
       itemCount: _aircrafts.length,
       itemBuilder: (context, index) {
-        return AircraftWidget(aircraft: _aircrafts[index]);
+        return AirborneAircraftWidget(aircraft: _aircrafts[index]);
       },
     );
   }
 }
 
-class AircraftWidget extends StatefulWidget {
+class AirborneAircraftWidget extends StatefulWidget {
   final Aircraft aircraft;
 
-  const AircraftWidget({required this.aircraft, Key? key}) : super(key: key);
+  const AirborneAircraftWidget({required this.aircraft, Key? key})
+      : super(key: key);
 
   @override
-  _AircraftWidgetState createState() => _AircraftWidgetState();
+  _AirborneAircraftWidgetState createState() => _AirborneAircraftWidgetState();
 }
 
-class _AircraftWidgetState extends State<AircraftWidget> {
+class _AirborneAircraftWidgetState extends State<AirborneAircraftWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
