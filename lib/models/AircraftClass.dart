@@ -14,6 +14,7 @@ class Aircraft {
   String initialClimb = "5000";
 
   // ground movement:
+  String airportposition = "V02";
   String currentTaxiway = "M";
 
   // other:
