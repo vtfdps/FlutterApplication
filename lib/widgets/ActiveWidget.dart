@@ -38,7 +38,6 @@ class ActiveAircraftWidget extends StatefulWidget {
 }
 
 class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
-  final _textStyle = TextStyle(fontSize: 18);
   @override
   Widget build(BuildContext context) {
     final widgetHeight = MediaQuery.of(context).size.height;
@@ -52,6 +51,10 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
     final box6 = 3 / 21.1 * widgetWidth;
     final box7 = 4.5 / 21.1 * widgetWidth;
     final box8 = 2.1 / 21.1 * widgetWidth;
+
+    final _textStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.shortestSide * 0.015,
+    );
 
     return Container(
       child: Row(
