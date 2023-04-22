@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:vtfdps/globals/TextStyle/WidgetHeaderStyle.dart';
 
+import '../globals/data.dart';
 import '../models/AircraftClass.dart';
 
 class ActiveWidget extends StatefulWidget {
@@ -55,9 +57,10 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
     final box7 = 4.5 / 21.1 * widgetWidth;
     final box8 = 2.1 / 21.1 * widgetWidth;
 
-    final _textStyle = TextStyle(
-      fontSize: MediaQuery.of(context).size.shortestSide * 0.015,
-    );
+    final textStyle = TextStyle(
+        color: Colors.white,
+        fontSize: MediaQuery.of(context).size.shortestSide * 0.02,
+        decoration: TextDecoration.none);
 
     return Container(
       child: Row(
@@ -71,7 +74,7 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
                   Center(
                     child: Text(
                       '?',
-                      style: _textStyle,
+                      style: textStyle,
                     ),
                   ),
                 ],
@@ -84,7 +87,7 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
               child: Center(
                 child: Text(
                   widget.aircraft.assignedRunway,
-                  style: _textStyle,
+                  style: textStyle,
                 ),
               ),
             ),
@@ -92,13 +95,13 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
           Flexible(
             child: SizedBox(
               width: box3,
-              child: Text(widget.aircraft.currentTaxiway, style: _textStyle),
+              child: Text(widget.aircraft.currentTaxiway, style: textStyle),
             ),
           ),
           Flexible(
             child: SizedBox(
               width: box4,
-              child: Text(widget.aircraft.callsign, style: _textStyle),
+              child: Text(widget.aircraft.callsign, style: textStyle),
             ),
           ),
           Flexible(
@@ -108,11 +111,11 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
                 children: [
                   Text(
                     widget.aircraft.aircrafttype,
-                    style: _textStyle,
+                    style: textStyle,
                   ),
                   Text(
                     widget.aircraft.wtc,
-                    style: _textStyle,
+                    style: textStyle,
                   )
                 ],
               ),
@@ -121,7 +124,7 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
           Flexible(
             child: SizedBox(
               width: box6,
-              child: Text('E1029', style: _textStyle),
+              child: Text('E1029', style: textStyle),
             ),
           ),
           Flexible(
@@ -131,11 +134,11 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
                 children: [
                   Text(
                     widget.aircraft.sid,
-                    style: _textStyle,
+                    style: textStyle,
                   ),
                   Text(
                     widget.aircraft.destination,
-                    style: _textStyle,
+                    style: textStyle,
                   )
                 ],
               ),
@@ -147,7 +150,7 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
             child: Column(children: [
               Text(
                 widget.aircraft.airportposition,
-                style: _textStyle,
+                style: textStyle,
               )
             ]),
           ))
