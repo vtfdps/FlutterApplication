@@ -11,20 +11,23 @@ class ActiveWidget extends StatefulWidget {
 }
 
 class _ActiveWidgetState extends State<ActiveWidget> {
-  // Test items
-  List<Aircraft> _aircrafts = [
-    Aircraft(callsign: 'DLH123', aircrafttype: 'A320'),
-    Aircraft(callsign: 'DLH124', aircrafttype: 'B748'),
-    Aircraft(callsign: 'DLH125', aircrafttype: 'Test'),
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _aircrafts.length,
-      itemBuilder: (context, index) {
-        return ActiveAircraftWidget(aircraft: _aircrafts[index]);
-      },
+    return Column(
+      children: [
+        const Text(
+          "ACTIVE",
+          style: widgetHeaderStyle,
+        ),
+        Flexible(
+          child: ListView.builder(
+            itemCount: Aircrafts.length,
+            itemBuilder: (context, index) {
+              return ActiveAircraftWidget(aircraft: Aircrafts[index]);
+            },
+          ),
+        ),
+      ],
     );
   }
 }

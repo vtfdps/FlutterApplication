@@ -12,26 +12,29 @@ class AirborneWidget extends StatefulWidget {
 }
 
 class AirborneWidgetState extends State<AirborneWidget> {
-  // test elements:
-  List<Aircraft> _aircrafts = [
-    Aircraft(callsign: 'DLH123', aircrafttype: 'A320'),
-    Aircraft(callsign: 'DLH124', aircrafttype: 'B748'),
-    Aircraft(callsign: 'DLH125', aircrafttype: 'Test'),
-  ];
-
-  void updateAircraftList(List<Aircraft> newAircrafts) {
+  void updateAircraftList(List<Aircraft> newAircraftList) {
     setState(() {
-      _aircrafts = newAircrafts;
+      Aircrafts = newAircraftList;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _aircrafts.length,
-      itemBuilder: (context, index) {
-        return AirborneAircraftWidget(aircraft: _aircrafts[index]);
-      },
+    return Column(
+      children: [
+        const Text(
+          "AIRBORNE",
+          style: widgetHeaderStyle,
+        ),
+        Flexible(
+          child: ListView.builder(
+            itemCount: Aircrafts.length,
+            itemBuilder: (context, index) {
+              return AircraftWidget(aircraft: Aircrafts[index]);
+            },
+          ),
+        ),
+      ],
     );
   }
 }
