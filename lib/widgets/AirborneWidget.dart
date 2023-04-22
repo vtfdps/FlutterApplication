@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../globals/TextStyle/WidgetHeaderStyle.dart';
+import '../globals/data.dart';
 import '../models/AircraftClass.dart';
 
 class AirborneWidget extends StatefulWidget {
