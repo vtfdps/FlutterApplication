@@ -20,6 +20,8 @@ class Aircraft {
   // other:
   String? assignedRunway = "23L";
 
+  Acdm cdm = Acdm();
+
   Aircraft({
     this.callsign,
     this.aircrafttype,
@@ -35,4 +37,18 @@ class Aircraft {
     this.currentTaxiway,
     this.assignedRunway,
   });
+}
+
+class Acdm {
+  DateTime eobt = DateTime.utc(1970);
+  DateTime tobt = DateTime.utc(1970);
+  DateTime ctot = DateTime.utc(1970);
+  DateTime ttot = DateTime.utc(1970);
+  DateTime tsat = DateTime.utc(1970);
+  DateTime exot = DateTime.utc(1970);
+  DateTime asat = DateTime.utc(1970);
+  DateTime aobt = DateTime.utc(1970);
+  DateTime atot = DateTime.utc(1970);
+  DateTime asrt = DateTime.utc(1970);
+  DateTime aort = DateTime.utc(1970);
 }
