@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vtfdps/widgets/ActiveWidget.dart';
+import 'package:vtfdps/widgets/ArrPendingWidget.dart';
 import '../models/AircraftClass.dart';
 import '../widgets/AirborneWidget.dart';
 import '../widgets/HeaderWidget.dart';
@@ -46,9 +47,8 @@ class GroundDeliveryGrid extends StatelessWidget {
                     ),
                     Expanded(
                       child: Container(
-                        color: Colors.blue,
                         child: Center(
-                          child: Text('ARR - PENDING'),
+                          child: ArrPendingWidget(),
                         ),
                       ),
                     ),
