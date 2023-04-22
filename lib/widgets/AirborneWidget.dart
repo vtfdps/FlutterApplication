@@ -39,17 +39,16 @@ class AirborneWidgetState extends State<AirborneWidget> {
   }
 }
 
-class AirborneAircraftWidget extends StatefulWidget {
+class AircraftWidget extends StatefulWidget {
   final Aircraft aircraft;
 
-  const AirborneAircraftWidget({required this.aircraft, Key? key})
-      : super(key: key);
+  const AircraftWidget({required this.aircraft, Key? key}) : super(key: key);
 
   @override
-  _AirborneAircraftWidgetState createState() => _AirborneAircraftWidgetState();
+  _AircraftWidgetState createState() => _AircraftWidgetState();
 }
 
-class _AirborneAircraftWidgetState extends State<AirborneAircraftWidget> {
+class _AircraftWidgetState extends State<AircraftWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
