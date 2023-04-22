@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:vtfdps/globals/TextStyle/WidgetHeaderStyle.dart';
+import 'package:vtfdps/globals/TextStyle/WidgetTextStyle.dart';
 
 import '../globals/data.dart';
 import '../models/AircraftClass.dart';
@@ -57,10 +58,23 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
     final box7 = 4.5 / 21.1 * widgetWidth;
     final box8 = 2.1 / 21.1 * widgetWidth;
 
-    final textStyle = TextStyle(
-        color: Colors.white,
-        fontSize: MediaQuery.of(context).size.shortestSide * 0.02,
-        decoration: TextDecoration.none);
+    final TextStyle activeWidgetTextStyle = listElementTextStyle.copyWith(
+        fontSize: MediaQuery.of(context).size.shortestSide * 0.02);
+
+    final Color aircrafttypeColor;
+    final Color wtcColor;
+    final Color wtcTextColor;
+    if (widget.aircraft.wtc != 'H') {
+      aircrafttypeColor = Colors.black;
+      wtcColor = Colors.black;
+      wtcTextColor = activeWidgetTextStyle.color ?? Colors.white;
+    } else {
+      // color picked rgb from picture
+      aircrafttypeColor = const Color.fromRGBO(215, 215, 102, 1.0);
+      // color picked rgb from picture
+      wtcColor = const Color.fromRGBO(230, 230, 250, 1.0);
+      wtcTextColor = Colors.black;
+    }
 
     return Container(
       child: Row(
@@ -159,6 +173,7 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
             child: Column(children: [
               Text(
                 widget.aircraft.airportposition ?? "",
+                style: activeWidgetTextStyle,
               )
             ]),
           ))
