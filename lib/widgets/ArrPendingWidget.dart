@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../globals/TextStyle/WidgetHeaderStyle.dart';
 import '../globals/TextStyle/widgetTextStyle.dart';
+import '../globals/colors/colors.dart';
 import '../globals/data.dart';
 import '../models/AircraftClass.dart';
 
@@ -20,6 +21,11 @@ class _ArrPendingWidgetState extends State<ArrPendingWidget> {
         const Text(
           "ARR - PENDING",
           style: widgetHeaderStyle,
+        ),
+        const Divider(
+          color: dividerColor,
+          thickness: 2,
+          height: 2,
         ),
         Flexible(
           child: ListView.builder(

@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:vtfdps/globals/TextStyle/WidgetHeaderStyle.dart';
 import 'package:vtfdps/globals/TextStyle/WidgetTextStyle.dart';
 
+import '../globals/colors/colors.dart';
 import '../globals/data.dart';
 import '../models/AircraftClass.dart';
 
@@ -21,6 +22,11 @@ class _ActiveWidgetState extends State<ActiveWidget> {
         const Text(
           "ACTIVE",
           style: widgetHeaderStyle,
+        ),
+        const Divider(
+          color: dividerColor,
+          thickness: 2,
+          height: 2,
         ),
         Flexible(
           child: ListView.builder(

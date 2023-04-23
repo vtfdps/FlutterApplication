@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:vtfdps/globals/colors/colors.dart';
 import '../globals/TextStyle/WidgetHeaderStyle.dart';
 import '../globals/TextStyle/widgetTextStyle.dart';
 import '../globals/data.dart';
@@ -30,7 +31,12 @@ class AirborneWidgetState extends State<AirborneWidget> {
           "AIRBORNE",
           style: widgetHeaderStyle,
         ),
-        Flexible(
+        const Divider(
+          color: dividerColor,
+          thickness: 2,
+          height: 2,
+        ),
+        Expanded(
           child: ListView.builder(
             itemCount: Aircrafts.length,
             itemBuilder: (context, index) {
@@ -58,14 +64,12 @@ class _AircraftWidgetState extends State<AircraftWidget> {
     final widgetHeight = MediaQuery.of(context).size.height;
     final widgetWidth = MediaQuery.of(context).size.width;
 
-    final widthColumn1 = 1.1 / 21.1 * widgetWidth;
-    final widthColumn2 = 2.1 / 21.1 * widgetWidth;
-    final widthColumn3 = 1.5 / 21.1 * widgetWidth;
-    final widthColumn4 = 3.8 / 21.1 * widgetWidth;
-    final widthColumn5 = 3 / 21.1 * widgetWidth;
-    final widthColumn6 = 3 / 21.1 * widgetWidth;
-    final widthColumn7 = 4.5 / 21.1 * widgetWidth;
-    final widthColumn8 = 2.1 / 21.1 * widgetWidth;
+    final widthColumn1 = 3 / 100 * widgetWidth;
+    final widthColumn2 = 6 / 100 * widgetWidth;
+    final widthColumn3 = 4 / 100 * widgetWidth;
+    final widthColumn4 = 5 / 100 * widgetWidth;
+    final widthColumn5 = 6 / 100 * widgetWidth;
+    final widthColumn6 = 8 / 100 * widgetWidth;
 
     final TextStyle activeWidgetTextStyle = listElementTextStyle.copyWith(
         fontSize: MediaQuery.of(context).size.shortestSide * 0.02);
@@ -85,92 +89,83 @@ class _AircraftWidgetState extends State<AircraftWidget> {
       wtcTextColor = Colors.black;
     }
 
-    return Container(
-      child: Row(
-        children: [
-          Flexible(
-            child: SizedBox(
-              width: widthColumn1,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Center(
-                    child: Text(
-                      '?',
-                      style: activeWidgetTextStyle,
-                    ),
-                  ),
-                ],
+    return Row(
+      children: [
+        SizedBox(
+          width: widthColumn1,
+          child: Center(
+            child: Text(
+              '?',
+              style: activeWidgetTextStyle,
+            ),
+          ),
+        ),
+        SizedBox(
+          width: widthColumn2,
+          child: Text(widget.aircraft.callsign ?? "",
+              style: activeWidgetTextStyle),
+        ),
+        SizedBox(
+          width: widthColumn3,
+          child: Column(
+            children: [
+              Container(
+                color: aircrafttypeColor,
+                child: Text(
+                  widget.aircraft.aircrafttype ?? "",
+                  style: activeWidgetTextStyle,
+                ),
               ),
-            ),
+              Container(
+                color: wtcColor,
+                child: Text(
+                  widget.aircraft.wtc ?? "",
+                  style: activeWidgetTextStyle.copyWith(color: wtcTextColor),
+                ),
+              )
+            ],
           ),
-          Flexible(
-            child: SizedBox(
-              width: widthColumn4,
-              child: Text(widget.aircraft.callsign ?? "",
-                  style: activeWidgetTextStyle),
-            ),
-          ),
-          Flexible(
-            child: SizedBox(
-              width: widthColumn5,
-              child: Column(
-                children: [
-                  Container(
-                    color: aircrafttypeColor,
-                    child: Text(
-                      widget.aircraft.aircrafttype ?? "",
-                      style: activeWidgetTextStyle,
-                    ),
-                  ),
-                  Container(
-                    color: wtcColor,
-                    child: Text(
-                      widget.aircraft.wtc ?? "",
-                      style:
-                          activeWidgetTextStyle.copyWith(color: wtcTextColor),
-                    ),
-                  )
-                ],
+        ),
+        SizedBox(
+          width: widthColumn4,
+          child: Column(
+            children: [
+              Text(
+                widget.aircraft.destination ?? "",
+                style: activeWidgetTextStyle,
               ),
-            ),
+              Text(
+                widget.aircraft.assignedSquawk ?? "",
+                style: activeWidgetTextStyle,
+              )
+            ],
           ),
-          Flexible(
-            child: SizedBox(
-              width: widthColumn7,
-              child: Column(
-                children: [
-                  Text(
-                    widget.aircraft.destination ?? "",
-                    style: activeWidgetTextStyle,
-                  ),
-                  Text(
-                    widget.aircraft.assignedSquawk ?? "",
-                    style: activeWidgetTextStyle,
-                  )
-                ],
+        ),
+        SizedBox(
+          width: widthColumn5,
+          child: Column(
+            children: [
+              Text(
+                widget.aircraft.sid ?? "",
+                style: activeWidgetTextStyle,
               ),
-            ),
-          ),
-          Flexible(
-            child: SizedBox(
-              width: widthColumn7,
-              child: Column(
-                children: [
-                  Text(
-                    widget.aircraft.sid ?? "",
-                    style: activeWidgetTextStyle,
-                  ),
-                  Text(
-                    "",
-                    style: activeWidgetTextStyle,
-                  )
-                ],
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 25,
+                child: const Divider(
+                  color: dividerColor,
+                  thickness: 2,
+                  height: 1,
+                ),
               ),
-            ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 35,
+              )
+            ],
           ),
-          Flexible(
-              child: Column(
+        ),
+        SizedBox(
+          width: widthColumn6,
+          child: Column(
             children: [
               Row(
                 children: [
@@ -197,9 +192,9 @@ class _AircraftWidgetState extends State<AircraftWidget> {
                 ],
               ),
             ],
-          ))
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

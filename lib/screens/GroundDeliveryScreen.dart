@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vtfdps/widgets/ActiveWidget.dart';
 import 'package:vtfdps/widgets/ArrPendingWidget.dart';
+import '../globals/colors/colors.dart';
 import '../models/AircraftClass.dart';
 import '../widgets/AirborneWidget.dart';
 import '../widgets/HeaderWidget.dart';
@@ -13,15 +14,15 @@ class GroundDeliveryGrid extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
 
-    const sizeRow1 = 0.269;
-    const sizeRow2 = 0.415;
-    const sizeRow34 = (0.90 - sizeRow2 - sizeRow1) / 2;
+    const sizeRow1 = 0.3;
+    const sizeRow2 = 0.40;
+    const sizeRow34 = (1 - sizeRow2 - sizeRow1) / 2;
 
-    return Column(
-      children: [
-        HeaderWidget(),
-        Container(
-          child: Column(
+    return SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        child: Column(children: [
+          const HeaderWidget(),
+          Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
@@ -30,7 +31,7 @@ class GroundDeliveryGrid extends StatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         width: double.infinity,
                         height: double.infinity,
                         child: Align(
@@ -38,12 +39,22 @@ class GroundDeliveryGrid extends StatelessWidget {
                             child: AirborneWidget()),
                       ),
                     ),
+                    const VerticalDivider(
+                      color: dividerColor,
+                      thickness: 2,
+                      width: 1,
+                    ),
                     Expanded(
                       child: Container(
                         width: double.infinity,
                         height: double.infinity,
                         child: ActiveWidget(),
                       ),
+                    ),
+                    const VerticalDivider(
+                      color: dividerColor,
+                      thickness: 2,
+                      width: 1,
                     ),
                     Expanded(
                       child: Container(
@@ -124,9 +135,7 @@ class GroundDeliveryGrid extends StatelessWidget {
                 ),
               ),
             ],
-          ),
-        ),
-      ],
-    );
+          )
+        ]));
   }
 }
