@@ -90,9 +90,10 @@ class _AircraftWidgetState extends State<AircraftWidget> {
     }
 
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        SizedBox(
-          width: widthColumn1,
+        Flexible(
+          flex: 1,
           child: Center(
             child: Text(
               '?',
@@ -100,13 +101,12 @@ class _AircraftWidgetState extends State<AircraftWidget> {
             ),
           ),
         ),
-        SizedBox(
-          width: widthColumn2,
-          child: Text(widget.aircraft.callsign ?? "",
-              style: activeWidgetTextStyle),
-        ),
-        SizedBox(
-          width: widthColumn3,
+        Flexible(
+            flex: 3,
+            child: Text(widget.aircraft.callsign ?? "",
+                style: activeWidgetTextStyle)),
+        Flexible(
+          flex: 2,
           child: Column(
             children: [
               Container(
@@ -126,8 +126,8 @@ class _AircraftWidgetState extends State<AircraftWidget> {
             ],
           ),
         ),
-        SizedBox(
-          width: widthColumn4,
+        Flexible(
+          flex: 2,
           child: Column(
             children: [
               Text(
@@ -141,8 +141,8 @@ class _AircraftWidgetState extends State<AircraftWidget> {
             ],
           ),
         ),
-        SizedBox(
-          width: widthColumn5,
+        Flexible(
+          flex: 2,
           child: Column(
             children: [
               Text(
@@ -163,8 +163,8 @@ class _AircraftWidgetState extends State<AircraftWidget> {
             ],
           ),
         ),
-        SizedBox(
-          width: widthColumn6,
+        Flexible(
+          flex: 2,
           child: Column(
             children: [
               Row(
@@ -193,7 +193,7 @@ class _AircraftWidgetState extends State<AircraftWidget> {
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }
