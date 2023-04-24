@@ -37,11 +37,16 @@ class AirborneWidgetState extends State<AirborneWidget> {
           height: 2,
         ),
         Expanded(
-          child: ListView.builder(
+          child: ListView.separated(
             itemCount: Aircrafts.length,
             itemBuilder: (context, index) {
               return AircraftWidget(aircraft: Aircrafts[index]);
             },
+            separatorBuilder: (context, index) => const Divider(
+              color: dividerColor,
+              thickness: 2,
+              height: 1,
+            ),
           ),
         ),
       ],
@@ -183,7 +188,7 @@ class _AircraftWidgetState extends State<AircraftWidget> {
               Row(
                 children: [
                   Container(
-                    width: 100,
+                    width: 75,
                     height: 25,
                     decoration: const BoxDecoration(
                       color: Colors.black,

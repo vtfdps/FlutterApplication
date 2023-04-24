@@ -29,11 +29,16 @@ class _ActiveWidgetState extends State<ActiveWidget> {
           height: 2,
         ),
         Flexible(
-          child: ListView.builder(
+          child: ListView.separated(
             itemCount: Aircrafts.length,
             itemBuilder: (context, index) {
               return ActiveAircraftWidget(aircraft: Aircrafts[index]);
             },
+            separatorBuilder: (context, index) => const Divider(
+              color: dividerColor,
+              thickness: 2,
+              height: 1,
+            ),
           ),
         ),
       ],
@@ -138,6 +143,14 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
                       style: activeWidgetTextStyle,
                     ),
                   ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 25,
+                    child: const Divider(
+                      color: dividerColor,
+                      thickness: 2,
+                      height: 2,
+                    ),
+                  ),
                   Container(
                     color: wtcColor,
                     child: Text(
@@ -164,6 +177,14 @@ class _ActiveAircraftWidgetState extends State<ActiveAircraftWidget> {
                   Text(
                     widget.aircraft.sid ?? "",
                     style: activeWidgetTextStyle,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: const Divider(
+                      color: dividerColor,
+                      thickness: 2,
+                      height: 1,
+                    ),
                   ),
                   Text(
                     widget.aircraft.destination ?? "",

@@ -28,11 +28,16 @@ class _ArrPendingWidgetState extends State<ArrPendingWidget> {
           height: 2,
         ),
         Flexible(
-          child: ListView.builder(
+          child: ListView.separated(
             itemCount: Aircrafts.length,
             itemBuilder: (context, index) {
               return PendingAircraftWidget(aircraft: Aircrafts[index]);
             },
+            separatorBuilder: (context, index) => const Divider(
+              color: dividerColor,
+              thickness: 2,
+              height: 1,
+            ),
           ),
         ),
       ],
